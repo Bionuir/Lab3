@@ -29,9 +29,13 @@ import com.example.bienvenidoalcurso.ui.theme.BienvenidoAlCursoTheme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.ui.draw.clip
@@ -55,16 +59,26 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun LazyRowExample() {
-    LazyRow {
+fun LazyGridExample() {
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(3),
+        modifier = Modifier.padding(8.dp)
+    ) {
         items(10) { index ->
-            Text("Item #$index", modifier = Modifier.padding(8.dp))
+            Box(
+                modifier = Modifier
+                    .aspectRatio(1f)
+                    .padding(8.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("Item #$index")
+            }
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewLazyRowExample() {
-    LazyRowExample()
+fun PreviewLazyGridExample() {
+    LazyGridExample()
 }
