@@ -30,6 +30,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.ui.draw.clip
@@ -46,7 +47,6 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
             ) {
-                GreetingCard()
             }
         }
 
@@ -54,54 +54,16 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingCard() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(
-            text = "Welcome to the Course!",
-            fontSize = 28.sp,
-            fontWeight = FontWeight.Bold
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text(
-            text = "Hello, Student!",
-            fontSize = 20.sp
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceAround
-        ) {
-            Button(onClick = { /* Simulación de acción */ }) {
-                Text("Accept")
-            }
-            Button(onClick = { /* Simulación de acción */ }) {
-                Text("Decline")
-            }
+fun LazyColumnExample() {
+    LazyColumn {
+        items(10) { index ->
+            Text("Item #$index", modifier = Modifier.padding(8.dp))
         }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Image(
-            painter = painterResource(id = R.drawable.ic_launcher_foreground),
-            contentDescription = "Course Image",
-            modifier = Modifier.size(100.dp)
-        )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewGreetingCard() {
-    GreetingCard()
+fun PreviewLazyColumnExample() {
+    LazyColumnExample()
 }
