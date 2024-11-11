@@ -31,6 +31,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.ui.draw.clip
@@ -54,8 +55,8 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun LazyColumnExample() {
-    LazyColumn {
+fun LazyRowExample() {
+    LazyRow {
         items(10) { index ->
             Text("Item #$index", modifier = Modifier.padding(8.dp))
         }
@@ -64,6 +65,6 @@ fun LazyColumnExample() {
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewLazyColumnExample() {
-    LazyColumnExample()
+fun PreviewLazyRowExample() {
+    LazyRowExample()
 }
